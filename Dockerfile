@@ -6,6 +6,9 @@ WORKDIR /var/www
 RUN apt-get update && apt-get install -y \
   php5-fpm
 
+# Permissions
+RUN groupmod -g 109 www-data && usermod -aG www-data nginx
+
 # Configure nginx
 RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
 
