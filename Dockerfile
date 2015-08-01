@@ -6,6 +6,9 @@ WORKDIR /var/www
 RUN apt-get update && apt-get install -y \
   php5-fpm
 
+# Configure nginx
+RUN echo "\ndaemon off;" >> /etc/nginx/nginx.conf
+
 # Our default virtual-host
 ADD ./etc/nginx/virtual-host.conf /etc/nginx/sites-available/default
 
