@@ -9,3 +9,6 @@ RUN apt-get update && apt-get install -y \
 # Our default virtual-host
 ADD ./etc/nginx/virtual-host.conf /etc/nginx/sites-available/default
 
+# Start php5-fpm and nginx
+CMD service php5-fpm start && nginx
+
